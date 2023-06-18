@@ -73,6 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -81,6 +82,18 @@ body {
   color: #FFFFFF;
   position: relative;
   background-color: #333333;
+}
+
+.wrapper {
+  scroll-behavior: smooth;
+}
+
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-hidden .burger-menu {
+  overflow: scroll;
 }
 
 h2 {
@@ -115,9 +128,19 @@ h3 {
 .header__container {
   padding: 3.125rem 2.0625rem 6.6875rem 2.0625rem;
 }
-.header-head {
+.header-head__container {
   display: flex;
   justify-content: space-between;
+}
+
+.header-head {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(51, 51, 51, 0.8);
+  z-index: 5;
+  padding: 2.125rem 2.0625rem;
 }
 .header-head__burger-menu {
   flex: 0 0 1.6875rem;
@@ -181,9 +204,8 @@ h3 {
   align-items: center;
   padding: 1.875rem;
   position: fixed;
-  top: 0;
-  overflow: auto;
   transition: left 0.3s ease 0s;
+  z-index: 10;
 }
 .burger-menu__close {
   width: 100%;
@@ -227,6 +249,7 @@ h3 {
   position: fixed;
   overflow: auto;
   display: none;
+  z-index: 10;
 }
 
 .modal-menu__close {
@@ -259,7 +282,7 @@ h3 {
   color: #C4C4C4;
 }
 .about {
-  margin-top: 5rem;
+  padding-top: 5rem;
 }
 .about__container {
   text-align: center;
@@ -283,7 +306,6 @@ h3 {
   padding: 0 4.1875rem;
   justify-content: space-between;
   margin-top: 1.6875rem;
-  margin-bottom: 2.5rem;
 }
 .about__info-block-item-text {
   font-weight: 700;
@@ -306,6 +328,9 @@ h3 {
   background: #000000;
 }
 
+.our-productions {
+  padding-top: 4.375rem;
+}
 .our-productions__container {
   text-align: center;
 }
@@ -404,7 +429,7 @@ h3 {
   }
 }
 .partners {
-  margin-top: 5rem;
+  padding-top: 5rem;
 }
 .partners__titile {
   text-align: center;
@@ -497,24 +522,51 @@ h3 {
   margin-bottom: 1.875rem;
 }
 .patron__form-container input {
-  width: 230px;
-  height: 35px;
-  background: #444444;
+  width: 14.375rem;
+  height: 2.1875rem;
+  background-color: #444444;
   border: 1px solid #616161;
   padding-left: 0.9375rem;
-  position: relative;
+}
+.patron__form-container input:focus {
+  background-color: rgba(68, 68, 68, 0.2274509804);
 }
 .patron__form-container input::placeholder {
   color: #989898;
-  position: absolute;
-  top: 8px;
-  left: 10px;
 }
 .patron__form-container input {
   color: #989898;
 }
+.patron__tel {
+  position: relative;
+}
+.patron__tel-help {
+  display: none;
+  position: absolute;
+  width: 14.375rem;
+  height: 3.1875rem;
+  top: 2.875rem;
+  left: 0;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.7607843137);
+  border-radius: 0.3125rem;
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: center;
+  color: #989898;
+}
 .patron__text-input {
-  color: #ffb514;
+  color: #989898;
+  background-color: #444444;
+  border: 1px solid #616161;
+  padding-left: 0.9375rem;
+  padding-top: 0.5125rem;
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+.patron__text-input::placeholder {
+  color: #989898;
 }
 .patron__confidence-info {
   margin-top: 1.875rem;
@@ -522,11 +574,6 @@ h3 {
   line-height: 150%;
   text-align: center;
   color: #989898;
-}
-
-#input-massege {
-  width: 100%;
-  height: 6.25rem;
 }
 
 #submit {
@@ -572,4 +619,44 @@ h3 {
 }
 .footer__autor span {
   white-space: nowrap;
+}
+
+.btn-up {
+  position: fixed;
+  background-color: #6b6b6b;
+  right: 20px;
+  bottom: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out;
+  width: 60px;
+  height: 50px;
+  opacity: 1;
+}
+
+.btn-up::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3E%3C/svg%3E");
+}
+
+.btn-up_hide {
+  display: none;
+}
+
+.btn-up_hiding {
+  opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-up:hover {
+    background-color: #3d3d3d;
+  }
 }
