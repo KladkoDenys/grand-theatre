@@ -235,15 +235,15 @@
 					</h2>
 					<form class="patron__form-container">
 						<div class="patron__row">
-							<input type="text" placeholder="Имя" minlength="2" maxlength="25" required>
-							<input type="text" placeholder="Компания" minlength="1" maxlength="25" required>
+							<input  type="text" placeholder="Имя" minlength="2" maxlength="25" required>
+							<input  type="text" placeholder="Компания" minlength="1" maxlength="25" required>
 						</div>
 						<div class="patron__row">
 							<div class="patron__tel patron__tel-container">
-								<input class="patron__tel" type="tel" placeholder="Телефон" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"  minlength="3" maxlength="25" required>
-								<div class="patron__tel-help"> * номер телефона должен быть в формате  099-33-333-33-33</div>
+								<input class="patron__tel patron__tel-input" type="tel" placeholder="Телефон" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"  minlength="3" maxlength="25" required>
+								<div class="patron__tel-help"> * номер телефона должен быть в формате  099-333-33-33</div>
 							</div>
-							<input type="email" placeholder="E-mail" minlength="3" maxlength="25">
+							<input class="patron__email-input" type="email" placeholder="E-mail" minlength="3" maxlength="25">
 						</div>
 						<textarea  class="patron__text-input" required placeholder="Сообщение"></textarea>
 						<input type="submit" id="submit" value="Отправить">

@@ -229,12 +229,21 @@ const btnUp = {
 //----Input - help
 //--------------------
 
-	const inputTelTrigger = document.querySelector('.patron__tel'),
-			helpWindow = document.querySelector('.patron__tel-help');
+	const inputTelTrigger = document.querySelector('.patron__tel-input'),
+			helpWindow = document.querySelector('.patron__tel-help'),
+			emailInput= document.querySelector('.patron__email-input');
 
-	inputTelTrigger.addEventListener('focus', function(){
-		helpWindow.style.display = 'flex';
-	})
+			inputTelTrigger.addEventListener('focus',() => {
+				helpWindow.style.display = 'block';
+				emailInput.classList.add('patron__email-input-focus');
+			})
+	
+			inputTelTrigger.addEventListener('blur',() => {
+				helpWindow.style.display = 'none';
+				emailInput.classList.remove('patron__email-input-focus');
+			})
+
+	
 
 
 });
